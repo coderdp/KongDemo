@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "5c42e0ed-8663-4373-8e7d-3f7cbd7436d7",
+		"name": "Kong",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "493297"
+	},
+	"item": [
+		{
+			"name": "获取token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\":\"admin\",\r\n    \"Password\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.10.109:8000/auth/api/auth/token",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"10",
+						"109"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"api",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询 orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "demo1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.10.109:8000/order/api/orders",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"10",
+						"109"
+					],
+					"port": "8000",
+					"path": [
+						"order",
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询 users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.10.109:8000/user/api/users",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"10",
+						"109"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user WhoAmI",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.10.109:8000/user/api/home",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"10",
+						"109"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"api",
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order WhoAmI",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.10.109:8000/order/api/home",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"10",
+						"109"
+					],
+					"port": "8000",
+					"path": [
+						"order",
+						"api",
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "允许匿名请求的操作",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.10.109:8000/user/api/home/AllowAnonymous",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"10",
+						"109"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"api",
+						"home",
+						"AllowAnonymous"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
