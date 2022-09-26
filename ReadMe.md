@@ -3,6 +3,7 @@
 - Route：路由，不同的route对应着service中的不同接口。
 - Upstream：和nginx中的upstream擦不多，都对应着一组服务节点。
 - Target：对应着一个api服务节点。
+- Consumers : Service/Route 的消费者
 
 ```
 # upstream 对应kong中的Upstream
@@ -26,9 +27,10 @@ server {
 ## How TO Start
 1. 根目录执行 `docker-compose up -d` 启动 Kong 和 Konga
 2. 浏览器打开 localhost:1337 ,初始化 Konga 用户
-3. 在 Snapshot  导入 docs 目录下 snapshot.json，导入后点击 详情页面，然后 Restore
+3. 在 Snapshot  导入 docs 目录下 snapshot.json，导入后点击 详情页面，然后依次 Restore。因为有引用关系，建议依次进行
 4. 修改 host 文件 
 你的IP sample.api.com
 5. postman 导入 Kong.postman_collection.json
-6. 同时启动三个项目，获取 token 后，调用接口
+6. route  中的Hosts需要适当修改 ip
+7. 同时启动三个项目，获取 token 后，调用接口
 
